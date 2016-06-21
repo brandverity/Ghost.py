@@ -31,14 +31,11 @@ from .bindings import (
     QPainter,
     QPrinter,
     QRegion,
-    QtNetwork,
     QNetworkRequest,
     QNetworkAccessManager,
     QNetworkCookieJar,
     QNetworkProxy,
     QNetworkCookie,
-    QSslConfiguration,
-    QSsl,
     QtWebKit,
 )
 
@@ -856,32 +853,6 @@ class Session(object):
 
         if user_agent is not None:
             self.page.set_user_agent(user_agent)
-
-        if client_certificate:
-            ssl_conf = QSslConfiguration.defaultConfiguration()
-
-            if "certificate_path" in client_certificate:
-                try:
-                    certificate = QtNetwork.QSslCertificate.fromPath(
-                        client_certificate["certificate_path"],
-                        QSsl.Pem,
-                    )[0]
-                except IndexError:
-                    raise Error(
-                        "Can't find certicate in %s"
-                        % client_certificate["certificate_path"]
-                    )
-
-                ssl_conf.setLocalCertificate(certificate)
-
-            if "key_path" in client_certificate:
-                private_key = QtNetwork.QSslKey(
-                    open(client_certificate["key_path"]).read(),
-                    QSsl.Rsa,
-                )
-                ssl_conf.setPrivateKey(private_key)
-
-            QSslConfiguration.setDefaultConfiguration(ssl_conf)
 
         if encode_url:
             request = QNetworkRequest(QUrl(address))

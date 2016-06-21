@@ -84,7 +84,6 @@ QNetworkAccessManager = QtNetwork.QNetworkAccessManager
 QNetworkCookieJar = QtNetwork.QNetworkCookieJar
 QNetworkProxy = QtNetwork.QNetworkProxy
 QNetworkCookie = QtNetwork.QNetworkCookie
-QSslConfiguration = QtNetwork.QSslConfiguration
 QSsl = QtNetwork.QSsl
 
 QtWebKit = _import('QtWebKit')
