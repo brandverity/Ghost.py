@@ -53,7 +53,6 @@ QtCriticalMsg = QtCore.QtCriticalMsg
 QtDebugMsg = QtCore.QtDebugMsg
 QtFatalMsg = QtCore.QtFatalMsg
 QtWarningMsg = QtCore.QtWarningMsg
-qInstallMsgHandler = QtCore.qInstallMsgHandler
 if name == "PySide2":
     qInstallMsgHandler = QtCore.qInstallMessageHandler
 else:
