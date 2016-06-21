@@ -59,11 +59,24 @@ else:
     qInstallMsgHandler = QtCore.qInstallMsgHandler
 
 QtGui = _import("QtGui")
-QApplication = QtGui.QApplication
-QImage = QtGui.QImage
-QPainter = QtGui.QPainter
-QPrinter = QtGui.QPrinter
-QRegion = QtGui.QRegion
+if name == "PySide2":
+
+    QtWidgets = _import("QtWidgets")
+    QtPrintSupport = _import("QtPrintSupport")
+
+    QApplication = QtWidgets.QApplication
+    QImage = QtGui.QImage
+    QPainter = QtGui.QPainter
+    QPrinter = QtPrintSupport.QPrinter
+    QRegion = QtGui.QRegion
+
+else:
+
+    QApplication = QtGui.QApplication
+    QImage = QtGui.QImage
+    QPainter = QtGui.QPainter
+    QPrinter = QtGui.QPrinter
+    QRegion = QtGui.QRegion
 
 QtNetwork = _import("QtNetwork")
 QNetworkRequest = QtNetwork.QNetworkRequest
@@ -75,3 +88,13 @@ QSslConfiguration = QtNetwork.QSslConfiguration
 QSsl = QtNetwork.QSsl
 
 QtWebKit = _import('QtWebKit')
+if name == "PySide2":
+
+    QtWebKitWidgets = _import("QtWebKitWidgets")
+    QWebPage = QtWebKitWidgets.QWebPage
+    QWebView = QtWebKitWidgets.QWebView
+
+else:
+
+    QWebPage = QtWebKit.QWebPage
+    QWebView = QtWebKit.QWebView
