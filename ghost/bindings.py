@@ -8,7 +8,7 @@ if PY3:
     long = int
 
 
-bindings = ["PySide", "PyQt4"]
+bindings = ["PySide", "PySide2", "PyQt4"]
 binding = None
 
 
