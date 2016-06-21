@@ -54,6 +54,10 @@ QtDebugMsg = QtCore.QtDebugMsg
 QtFatalMsg = QtCore.QtFatalMsg
 QtWarningMsg = QtCore.QtWarningMsg
 qInstallMsgHandler = QtCore.qInstallMsgHandler
+if name == "PySide2":
+    qInstallMsgHandler = QtCore.qInstallMessageHandler
+else:
+    qInstallMsgHandler = QtCore.qInstallMsgHandler
 
 QtGui = _import("QtGui")
 QApplication = QtGui.QApplication
