@@ -398,22 +398,22 @@ class Session(object):
             self.page.setNetworkAccessManager(
                 network_access_manager_class(exclude_regex=exclude))
 
-        QtWebKit.QWebSettings.setMaximumPagesInCache(0)
-        QtWebKit.QWebSettings.setObjectCacheCapacities(0, 0, 0)
-        QtWebKit.QWebSettings.globalSettings().setAttribute(
-            QtWebKit.QWebSettings.LocalStorageEnabled, local_storage_enabled)
-
-        self.page.setForwardUnsupportedContent(True)
-        self.page.settings().setAttribute(
-            QtWebKit.QWebSettings.AutoLoadImages, download_images)
-        self.page.settings().setAttribute(
-            QtWebKit.QWebSettings.PluginsEnabled, plugins_enabled)
-        self.page.settings().setAttribute(
-            QtWebKit.QWebSettings.JavaEnabled,
-            java_enabled,
-        )
-        self.page.settings().setAttribute(
-            QtWebKit.QWebSettings.JavascriptEnabled, javascript_enabled)
+        # QtWebKit.QWebSettings.setMaximumPagesInCache(0)
+        # QtWebKit.QWebSettings.setObjectCacheCapacities(0, 0, 0)
+        # QtWebKit.QWebSettings.globalSettings().setAttribute(
+        #     QtWebKit.QWebSettings.LocalStorageEnabled, local_storage_enabled)
+        #
+        # self.page.setForwardUnsupportedContent(True)
+        # self.page.settings().setAttribute(
+        #     QtWebKit.QWebSettings.AutoLoadImages, download_images)
+        # self.page.settings().setAttribute(
+        #     QtWebKit.QWebSettings.PluginsEnabled, plugins_enabled)
+        # self.page.settings().setAttribute(
+        #     QtWebKit.QWebSettings.JavaEnabled,
+        #     java_enabled,
+        # )
+        # self.page.settings().setAttribute(
+        #     QtWebKit.QWebSettings.JavascriptEnabled, javascript_enabled)
 
         if not show_scrollbars:
             self.page.mainFrame().setScrollBarPolicy(
@@ -456,12 +456,12 @@ class Session(object):
 
         self.webview = GhostQWebView()
 
-        if plugins_enabled:
-            self.webview.settings().setAttribute(
-                QtWebKit.QWebSettings.PluginsEnabled, True)
-        if java_enabled:
-            self.webview.settings().setAttribute(
-                QtWebKit.QWebSettings.JavaEnabled, True)
+        # if plugins_enabled:
+        #     self.webview.settings().setAttribute(
+        #         QtWebKit.QWebSettings.PluginsEnabled, True)
+        # if java_enabled:
+        #     self.webview.settings().setAttribute(
+        #         QtWebKit.QWebSettings.JavaEnabled, True)
 
         self.webview.setPage(self.page)
 
