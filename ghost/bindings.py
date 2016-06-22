@@ -88,12 +88,10 @@ QSsl = QtNetwork.QSsl
 
 QtWebKit = _import('QtWebKit')
 if name == "PySide2":
-
     QtWebKitWidgets = _import("QtWebKitWidgets")
     QWebPage = QtWebKitWidgets.QWebPage
     QWebView = QtWebKitWidgets.QWebView
 
 else:
-
     QWebPage = QtWebKit.QWebPage
     QWebView = QtWebKit.QWebView

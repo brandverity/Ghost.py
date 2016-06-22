@@ -37,6 +37,8 @@ from .bindings import (
     QNetworkProxy,
     QNetworkCookie,
     QtWebKit,
+    QWebPage,
+    QWebView,
 )
 
 __version__ = "0.2.3"
@@ -78,8 +80,8 @@ class QTMessageProxy(object):
         getattr(self.logger, levels[msgType])(msg)
 
 
-class GhostWebPage(QtWebKit.QWebPage):
-    """Overrides QtWebKit.QWebPage in order to intercept some graphical
+class GhostWebPage(QWebPage):
+    """Overrides QWebPage in order to intercept some graphical
     behaviours like alert(), confirm().
     Also intercepts client side console.log().
     """
@@ -448,7 +450,7 @@ class Session(object):
 
         self.main_frame = self.page.mainFrame()
 
-        class GhostQWebView(QtWebKit.QWebView):
+        class GhostQWebView(QWebView):
             def sizeHint(self):
                 return QSize(*viewport_size)
 
@@ -621,7 +623,7 @@ class Session(object):
             printer.setFullPage(True)
         printer.setOutputFileName(path)
         if self.webview is None:
-            self.webview = QtWebKit.QWebView()
+            self.webview = QWebView()
             self.webview.setPage(self.page)
         self.webview.setZoomFactor(zoom_factor)
         self.webview.print_(printer)
